@@ -17,4 +17,9 @@ class ValidarNombreClase{
         }
         return valorDeRegreso
     }
+    
+    func doPasswordsMatch(password: String, repearPassword: String) -> Bool{
+       
+        return password == repearPassword
+    }
 }

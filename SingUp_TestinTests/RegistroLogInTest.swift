@@ -40,7 +40,7 @@ final class RegistroLogInTest: XCTestCase {
         //then/Asset
         XCTAssertFalse(nombreValido, "Este testCase no debe pasar si el nombre es demasiado corto")
     }
-   
+    
     
     func testSigupModel_whenNombreEsDemaciadoLargo_ShouldNOTPass(){
         let primerNombre = "Mksadasdasdasd"   //User Name
@@ -49,5 +49,22 @@ final class RegistroLogInTest: XCTestCase {
         let nombreValido = sut.FuncionQueValidaNombre(nombre: primerNombre)
         //then/Asset
         XCTAssertFalse(nombreValido, "Este testCase no debe pasar si el nombre es demasiado largo")
+    }
+    
+    
+    func testSignUpModel_WhenEqualPasswordProvided_ShouldReturnTrue(){
+        let sut = ValidarNombreClase()
+        
+        let doPassWordsMatch = sut.doPasswordsMatch(password: "123123", repearPassword: "123123")
+        XCTAssertTrue(doPassWordsMatch, "debe regresar TRUE cuando concidan los passwords , pero ha regresado FALSE")
+        
+    }
+    
+    func testSignUpModel_WhenPasswordisNOTEqual_ShouldReturnFALSE(){
+        let sut = ValidarNombreClase()
+        
+        let doPassWordsMatch = sut.doPasswordsMatch(password: "1231236", repearPassword: "123123")
+        XCTAssertFalse(doPassWordsMatch, "debe regresar FALSE cuando NO concidan los passwords , pero ha regresado TRUE")
+        
     }
 }
