@@ -9,11 +9,11 @@ import XCTest
 @testable import SingUp_Testin
 
 final class RegistroLogInTest: XCTestCase {
-    
+    let sut = ValidarNombreClase()
     func testSigupModel_whenNombreEsDado_ShouldPass(){
         //given
         let primerNombre = "Miguel"   //User Name
-        let sut = ValidarNombreClase()
+       
         //when
         let nombreValido = sut.FuncionQueValidaNombre(nombre: primerNombre)
         //then/Asset
@@ -23,7 +23,7 @@ final class RegistroLogInTest: XCTestCase {
     func testSigupFuntion_whenNombreEsDadoyEsVacio_ShouldNOTPass(){
         //given
         let primerNombre = ""
-        let sut = ValidarNombreClase()
+       
         //when
         let nombreNovalido = sut.FuncionQueValidaNombre(nombre: primerNombre)
         //Assert
@@ -34,7 +34,7 @@ final class RegistroLogInTest: XCTestCase {
     func testSigupModel_whenNombreEsDemaciadoCorto_ShouldNOTPass(){
         //given
         let primerNombre = "Mk"   //User Name
-        let sut = ValidarNombreClase()
+      
         //when
         let nombreValido = sut.FuncionQueValidaNombre(nombre: primerNombre)
         //then/Asset
@@ -44,7 +44,7 @@ final class RegistroLogInTest: XCTestCase {
     
     func testSigupModel_whenNombreEsDemaciadoLargo_ShouldNOTPass(){
         let primerNombre = "Mksadasdasdasd"   //User Name
-        let sut = ValidarNombreClase()
+        
         //when
         let nombreValido = sut.FuncionQueValidaNombre(nombre: primerNombre)
         //then/Asset
@@ -53,7 +53,6 @@ final class RegistroLogInTest: XCTestCase {
     
     
     func testSignUpModel_WhenEqualPasswordProvided_ShouldReturnTrue(){
-        let sut = ValidarNombreClase()
         
         let doPassWordsMatch = sut.doPasswordsMatch(password: "123123", repearPassword: "123123")
         XCTAssertTrue(doPassWordsMatch, "debe regresar TRUE cuando concidan los passwords , pero ha regresado FALSE")
@@ -61,7 +60,7 @@ final class RegistroLogInTest: XCTestCase {
     }
     
     func testSignUpModel_WhenPasswordisNOTEqual_ShouldReturnFALSE(){
-        let sut = ValidarNombreClase()
+    
         
         let doPassWordsMatch = sut.doPasswordsMatch(password: "1231236", repearPassword: "123123")
         XCTAssertFalse(doPassWordsMatch, "debe regresar FALSE cuando NO concidan los passwords , pero ha regresado TRUE")

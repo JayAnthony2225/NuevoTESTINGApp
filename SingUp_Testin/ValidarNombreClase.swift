@@ -15,7 +15,7 @@ class ValidarNombreClase{
         if nombre.count < 3 || nombre.count > 10 {
             valorDeRegreso = false
         }
-        return valorDeRegreso
+        return valorDeRegres     
     }
     
     func doPasswordsMatch(password: String, repearPassword: String) -> Bool{
